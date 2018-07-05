@@ -1,13 +1,8 @@
 const Koa = require('koa')
-const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
-const router = new Router
-
-router.get('/17', (ctx, nxt) => {
-    ctx.body = '00010001'
-})
+const router = require('./router')
 
 const app = new Koa
 

@@ -1,4 +1,4 @@
-# 17 API
+# 17
 
 ```sh
 npm install
