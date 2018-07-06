@@ -1,6 +1,6 @@
 {
-  "name": "17",
-  "version": "1.0.0",
+  "name": "lib17",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cbdyzj/17.git"
+    "url": "git+https://github.com/cbdyzj/lib17.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "lib17"
+  ],
+  "author": "cbdyzj",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cbdyzj/17/issues"
+    "url": "https://github.com/cbdyzj/lib17/issues"
   },
-  "homepage": "https://github.com/cbdyzj/17#readme",
+  "homepage": "https://github.com/cbdyzj/lib17#readme",
   "dependencies": {
     "koa": "^2.5.1",
     "koa-bodyparser": "^4.2.1",
