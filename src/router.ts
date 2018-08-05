@@ -1,8 +1,6 @@
-const Router = require('koa-router')
-
-const util = require('util')
-
-const marked = require('marked')
+import util from 'util'
+import marked from 'marked'
+import Router from 'koa-router'
 
 const router = new Router
 
@@ -28,4 +26,4 @@ router.all('/notify', ctx => {
     ctx.body = 'success'
 })
 
-module.exports = router
+export default router
