@@ -1,6 +1,1 @@
-# lib17
-
-```sh
-npm install
-npm start
-```
+# 代码片段
