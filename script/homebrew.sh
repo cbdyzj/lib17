@@ -14,6 +14,7 @@ brew install tomcat
 brew cask install qq
 brew cask install java
 brew cask install iina
+brew cask install folx
 brew cask install marp
 brew cask install wechat
 brew cask install docker
