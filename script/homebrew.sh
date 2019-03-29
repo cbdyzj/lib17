@@ -5,6 +5,7 @@ brew install wget
 brew install node
 brew install tree
 brew install maven
+brew install aria2
 brew install pandoc
 brew install groovy
 brew install tomcat
