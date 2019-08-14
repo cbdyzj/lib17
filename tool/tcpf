@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const net = require('net')
+const assert = require('assert')
 
 function tunntlTcp(host, port) {
     const server = net.createServer(source => {
@@ -16,5 +17,11 @@ function tunntlTcp(host, port) {
 }
 
 if (require.main === module) {
-    tunntlTcp('127.0.0.1', 8000).from(8080)
+    const sourcePort = process.argv[2]
+    const targetPort = process.argv[3]
+    assert(sourcePort, 'Source port required')
+    assert(targetPort, 'Target port required')
+    const targetHost = process.argv[4] || 'localhost'
+    console.log(`Forwarding from :${sourcePort} to ${targetHost}:${targetPort}`)
+    tunntlTcp(targetHost, targetPort).from(sourcePort)
 }
