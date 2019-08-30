@@ -1,0 +1,11 @@
+[user]
+	name = cbdyzj
+	email = cbdyzj@jianzhao.org
+[alias]
+	ss = status -s
+	co = checkout
+	br = branch
+	cm = commit
+	sm = submodule
+[core]
+	quotepath = false
