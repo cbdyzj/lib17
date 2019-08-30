@@ -10,6 +10,10 @@ alias de='cd ~/Desktop'
 alias code='open -b com.microsoft.VSCode "$@"'
 alias serve='python -m SimpleHTTPServer "$@"'
 alias convert-gb='iconv -f gb18030'
-alias ss='SS_PROXY=http://127.0.0.1:1087 \
-    && export http_proxy=$SS_PROXY \
-    && export https_proxy=$SS_PROXY'
+
+ss() {
+    local SS_PROXY='http://127.0.0.1:1087'
+    export http_proxy=$SS_PROXY
+    export https_proxy=$SS_PROXY
+    echo "Using Shadowsocks proxy: ${SS_PROXY}"
+}
