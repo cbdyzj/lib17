@@ -6,6 +6,7 @@ git remote prune origin # 清理本地分支
 git stash # 储藏
 git merge --squash # 合并代码
 git rebase --interactive # 交互变基
+git log --abbrev-commit --pretty=oneline -n10 # 简单显示最近10条提交
 git push origin --delete <branch> # 删除远程分支
 git branch --set-upstream-to=<ref> # 设置远程分支
 git add remote <name> <ref> # 设置源

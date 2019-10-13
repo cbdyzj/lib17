@@ -7,5 +7,6 @@
 	br = branch
 	cm = commit
 	sm = submodule
+	lq = log --abbrev-commit --pretty=oneline
 [core]
 	quotepath = false

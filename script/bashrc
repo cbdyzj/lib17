@@ -8,6 +8,7 @@ alias grep='grep --color'
 alias tree='tree -N'
 alias de='cd ~/Desktop'
 alias code='open -b com.microsoft.VSCode "$@"'
+alias atom='open -b com.github.atom "$@"'
 alias serve='python -m SimpleHTTPServer "$@"'
 alias convert-gb='iconv -f gb18030'
 
