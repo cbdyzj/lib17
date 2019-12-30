@@ -15,6 +15,7 @@ git remote add <repository> <ref> # 增加源
 git remote set-url origin <ref> # 替换源
 git add -u # 暂存已跟踪文件
 git add -A # 暂存所有文件
+git rm --cached <filename> # 取消暂存
 git tag <tagname> # 为当前版本打tag
 git tag -a <tagname> <commit> -m <comment> # 为特定版本打tag
 git push --tags # 推送tag到源
