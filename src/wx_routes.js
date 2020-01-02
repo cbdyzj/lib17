@@ -5,7 +5,12 @@ const { token } = require('./config')
 
 const wxRouter = Router()
 
-wxRouter.get("/wx", (req, res) => {
+wxRouter.post('/wx',(req,res) =>{
+    console.info(JSON.stringify(req.body))
+    res.end('')
+})
+
+wxRouter.get('/wx', (req, res) => {
     const { signature, echostr, timestamp, nonce } = req.query
 
     const joined = [token, timestamp, nonce].sort().join('')
@@ -17,7 +22,7 @@ wxRouter.get("/wx", (req, res) => {
         res.end(echostr)
         return
     }
-    res.end()
+    res.end('')
 })
 
 module.exports = wxRouter
