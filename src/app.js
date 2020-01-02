@@ -3,10 +3,15 @@ const express = require('express')
 
 const app = express()
 
+// static files
 app.use(express.static(join(__dirname, '..', 'static')))
 
-app.get('/api/hello', (req, res) => {
-    res.end('Hello World!')
+// wx api
+app.use(require('./wx_routes'))
+
+// health check
+app.get('/hi', (req, res) => {
+    res.end('hi')
 })
 
 app.listen(3000, () => {
