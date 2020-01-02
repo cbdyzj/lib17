@@ -2,7 +2,7 @@
 const net = require('net')
 const assert = require('assert')
 
-function tunntlTcp(host, port) {
+function tunnelTcp(host, port) {
     const server = net.createServer(source => {
         const destination = net.connect(
             { host, port },
