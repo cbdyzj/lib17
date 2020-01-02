@@ -5,13 +5,13 @@ const { token } = require('./config')
 
 const wxRouter = Router()
 
-const sha1Hash = crypto.createHash('sha1')
-
 wxRouter.get("/wx", (req, res) => {
     const { signature, echostr, timestamp, nonce } = req.query
 
     const joined = [token, timestamp, nonce].sort().join('')
-    const digest = sha1Hash.update(joined).digest('hex')
+    const digest = crypto.createHash('sha1')
+        .update(joined)
+        .digest('hex')
 
     if(digest === signature){
         res.end(echostr)
