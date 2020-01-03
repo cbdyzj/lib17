@@ -20,9 +20,13 @@ handlers.push(async (ctx, next) => {
             return
         }
         const wikiInfo = primary.baike_info
-        const info = '【' + primary.name + '】\n'
-            + wikiInfo.description + '\n'
-            + wikiInfo.baike_url
+        let info = primary.name
+        if (wikiInfo.description) {
+            info += '\n' + wikiInfo.description
+        }
+        if (wikiInfo.baike_url) {
+            info += '\n' + wikiInfo.baike_url
+        }
         ctx.text(info)
     } catch (error) {
         console.error(error)

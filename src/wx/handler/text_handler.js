@@ -30,7 +30,7 @@ handlers.push((ctx, next) => {
     if (ctx.payload.content === '植物识别') {
         // set user context
         ctx.channel.set(ctx.payload.fromUserName, '植物识别')
-        ctx.text('10分钟内上传图片能识别植物哦')
+        ctx.text('10分钟内上传图片能识别植物哦（为了防止图片太大，请避免上传原图哦）')
         return
     }
     return next()
