@@ -1,11 +1,17 @@
 const fs = require('fs')
-const { join } = require('path')
-
-const image = fs.readFileSync(join(__dirname, './image.png')).toString('base64')
+const {join} = require('path')
 const client = require('../src/baidu/plant_client')
+const url2base64 = require('../src/util/url2base64')
+
+const imageUrl = "https://wx4.sinaimg.cn/mw690/e7c6b476ly1gajjoo7nf8j20aw0bm0ta.jpg"
+
+async function plantImageTest() {
+    const image = await url2base64(imageUrl)
+    const result = await client(image)
+    console.log(result.result[0])
+
+}
 
 if (require.main === module) {
-    client(image).then(result => {
-        console.log(result.result[0])
-    })
+    plantImageTest()
 }
