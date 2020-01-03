@@ -27,14 +27,18 @@ function parseRequest(request) {
 
 function buildContext(request) {
     const payload = parseRequest(request)
+    const internalContext = {}
     return {
         payload,
         text(content) {
-            return textReply({
+            internalContext.reply = textReply({
                 fromUserName: payload.toUserName,
                 toUserName: payload.fromUserName,
                 content
             })
+        },
+        reply() {
+            return internalContext.reply
         },
     }
 }

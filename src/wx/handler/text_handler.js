@@ -5,7 +5,8 @@ const handlers = []
 
 handlers.push((ctx, next) => {
     if (/^在吗？?$/.test(ctx.payload.content)) {
-        return ctx.text('nano在的')
+        ctx.text('nano在的')
+        return
     }
     return next()
 })
@@ -19,15 +20,15 @@ handlers.push((ctx, next) => {
 
 handlers.push((ctx, next) => {
     if (ctx.payload.content === '植物识别') {
-        return ctx.text('10分钟内上传图片会识别植物哦（为了防止图片太大，请不要上传原图哦）')
+        ctx.text('10分钟内上传图片会识别植物哦')
+        return
     }
     return next()
 })
 
 // echo eventually
 handlers.push((ctx, next) => {
-    const text = ctx.payload.content
-    return ctx.text(text)
+    ctx.text(ctx.payload.content)
 })
 
 function handleTextMessage(ctx) {

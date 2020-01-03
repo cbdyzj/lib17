@@ -1,5 +1,5 @@
 const ExpiryMap = require('expiry-map')
-const { buildContext } = require('./parser/request_parser')
+const {buildContext} = require('./parser/request_parser')
 
 const {
     handleTextMessage,
@@ -19,13 +19,16 @@ function wxService(request) {
     switch (ctx.payload.messageType) {
         // 文本
         case 'text':
-            return handleTextMessage(ctx)
+            handleTextMessage(ctx)
+            break
         // 图片
         case 'image':
-            return handleImageMessage(ctx)
+            handleImageMessage(ctx)
+            break
         default:
-            return ctx.text('怎么办呢？')
+            ctx.text('怎么办呢？')
     }
+    return ctx.reply()
 }
 
 module.exports = wxService

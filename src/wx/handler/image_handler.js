@@ -7,24 +7,35 @@ const handlers = []
 
 // plant
 handlers.push(async (ctx, next) => {
+    // if(false){
+    //    return next()
+    // }
     try {
         console.log(ctx)
         const image = await url2base64(ctx.payload.pictureUrl)
         const result = await client(image)
         console.log(result)
-        const baikeInfo = result.result[0].baike_info
-        const info = baikeInfo.description + '\n' + baikeInfo.baike_url
-        return ctx.text(info)
+        const primary = result.result[0]
+        if (primary.name === '非植物') {
+            ctx.text('nano觉得这个不是植物哦😯')
+            return
+        }
+        const wikiInfo = primary.baike_info
+        const info = `【${primary.name}】
+        ${wikiInfo.description}
+        ${wikiInfo.baike_url}`
+
+        ctx.text(info)
     } catch (error) {
         console.error(error)
-        return ctx.text('nano遇到了一些问题：' + error.message)
+        ctx.text('nano遇到了一些问题：' + error.message)
     }
 
 })
 
 // eventually
 handlers.push(async (ctx, next) => {
-    return ctx.text('怎么办呢？')
+    ctx.text('怎么办呢？')
 })
 
 function handleImageMessage(ctx) {

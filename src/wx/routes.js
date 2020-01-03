@@ -9,10 +9,9 @@ const { token } = wx
 const wxRouter = Router()
 
 wxRouter.post('/wx',async (req,res) => {
-    const requestBody = req.body
-    const result = await wxService(requestBody)
     res.setHeader('Content-Type', 'text/xml')
-    res.end(result)
+    const reply = await wxService(req.body)
+    res.end(reply)
 })
 
 wxRouter.get('/wx', (req, res) => {
