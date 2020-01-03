@@ -21,9 +21,9 @@ handlers.push(async (ctx, next) => {
             return
         }
         const wikiInfo = primary.baike_info
-        const info = `【${primary.name}】
-        ${wikiInfo.description}
-        ${wikiInfo.baike_url}`
+        const info = primary.name + '\n'
+            + wikiInfo.description + '\n'
+            + wikiInfo.baike_url
 
         ctx.text(info)
     } catch (error) {
