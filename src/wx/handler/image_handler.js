@@ -8,6 +8,7 @@ const handlers = []
 // plant
 handlers.push(async (ctx, next) => {
     try {
+        console.log(ctx)
         const image = await url2base64(ctx.payload.pictureUrl)
         const result = await client(image)
         const baikeInfo = result.result[0].baike_info
