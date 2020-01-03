@@ -17,11 +17,11 @@ handlers.push(async (ctx, next) => {
         console.log(result)
         const primary = result.result[0]
         if (primary.name === '非植物') {
-            ctx.text('nano觉得这个不是植物哦😯')
+            ctx.text('nano觉得这个不是植物哦')
             return
         }
         const wikiInfo = primary.baike_info
-        const info = primary.name + '\n'
+        const info = '【' + primary.name + '】\n'
             + wikiInfo.description + '\n'
             + wikiInfo.baike_url
 
