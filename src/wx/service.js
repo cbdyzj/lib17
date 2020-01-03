@@ -1,4 +1,5 @@
-const {buildContext} = require('./parser/request_parser')
+const ExpiryMap = require('expiry-map')
+const { buildContext } = require('./parser/request_parser')
 
 const {
     handleTextMessage,
@@ -8,8 +9,13 @@ const {
     handleImageMessage,
 } = require('./handler/image_handler')
 
+const plantMap = new ExpiryMap
+
 function wxService(request) {
+    // build context
     const ctx = buildContext(request)
+    ctx.plantMap = plantMap
+
     switch (ctx.payload.messageType) {
         // 文本
         case 'text':
