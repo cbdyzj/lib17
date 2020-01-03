@@ -9,17 +9,18 @@ const {
     handleImageMessage,
 } = require('./handler/image_handler')
 
-const plantMap = new ExpiryMap
+// 10 minutes
+const channel = new ExpiryMap(10 * 60 * 1000)
 
 async function wxService(request) {
     // build context
     const ctx = buildContext(request)
-    ctx.plantMap = plantMap
+    ctx.channel = channel
 
     switch (ctx.payload.messageType) {
         // 文本
         case 'text':
-            handleTextMessage(ctx)
+            await handleTextMessage(ctx)
             break
         // 图片
         case 'image':

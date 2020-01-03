@@ -7,11 +7,10 @@ const handlers = []
 
 // plant
 handlers.push(async (ctx, next) => {
-    // if(false){
-    //    return next()
-    // }
+    if (ctx.channel.get(ctx.payload.fromUserName) !== '植物识别') {
+        return next()
+    }
     try {
-        console.log(ctx)
         const image = await url2base64(ctx.payload.pictureUrl)
         const result = await client(image)
         console.log(result)
@@ -24,18 +23,16 @@ handlers.push(async (ctx, next) => {
         const info = '【' + primary.name + '】\n'
             + wikiInfo.description + '\n'
             + wikiInfo.baike_url
-
         ctx.text(info)
     } catch (error) {
         console.error(error)
         ctx.text('nano遇到了一些问题：' + error.message)
     }
-
 })
 
 // eventually
 handlers.push(async (ctx, next) => {
-    ctx.text('怎么办呢？')
+    ctx.text('很显然，这是一张图片')
 })
 
 function handleImageMessage(ctx) {

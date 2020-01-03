@@ -2,7 +2,6 @@ const {
     textReply
 } = require('./reply_builder')
 
-
 function parseRequest(request) {
     if (!request || !request.xml) {
         throw new Error('Illegal request')
