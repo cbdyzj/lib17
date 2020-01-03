@@ -11,7 +11,7 @@ const {
 
 const plantMap = new ExpiryMap
 
-function wxService(request) {
+async function wxService(request) {
     // build context
     const ctx = buildContext(request)
     ctx.plantMap = plantMap
@@ -23,7 +23,7 @@ function wxService(request) {
             break
         // 图片
         case 'image':
-            handleImageMessage(ctx)
+            await handleImageMessage(ctx)
             break
         default:
             ctx.text('怎么办呢？')
