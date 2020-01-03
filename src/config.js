@@ -1,6 +1,4 @@
-module.exports = require('../_config')
-
-const defaultConfig = {
+const config = {
     wx: {
         token: '',
     },
@@ -9,4 +7,10 @@ const defaultConfig = {
         clientSecret: '',
         accessToken: '',
     }
+}
+
+try {
+    module.exports = require('../_config')
+} catch (error) {
+    module.exports = config
 }
