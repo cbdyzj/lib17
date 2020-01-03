@@ -6,7 +6,7 @@ const { token } = require('./config')
 const wxRouter = Router()
 
 wxRouter.post('/wx',(req,res) =>{
-    console.info(JSON.stringify(req.body))
+    console.info(req.body)
     res.end('')
 })
 
