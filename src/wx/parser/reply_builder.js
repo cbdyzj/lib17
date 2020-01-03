@@ -1,9 +1,9 @@
-function textReply(payload) {
+function textReply(parameters) {
     const {
         toUserName,
         fromUserName,
         content,
-    } = payload
+    } = parameters
     return `<xml>
  <ToUserName><![CDATA[${toUserName}]]></ToUserName>
  <FromUserName><![CDATA[${fromUserName}]]></FromUserName>
@@ -13,14 +13,6 @@ function textReply(payload) {
  </xml>`
 }
 
-function cannotHandleReply(payload) {
-    return textReply({
-        content: '怎么办呢？',
-        ...payload,
-    })
-}
-
 module.exports = {
     textReply,
-    cannotHandleReply,
 }

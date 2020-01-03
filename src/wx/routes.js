@@ -1,14 +1,16 @@
 const crypto = require('crypto')
 const { Router } = require('express')
 
-const { token } = require('../config')
+const { wx } = require('../config')
 const wxService = require('./service')
+
+const { token } = wx
 
 const wxRouter = Router()
 
-wxRouter.post('/wx',(req,res) => {
-    const payload = req.body
-    const result = wxService(payload)
+wxRouter.post('/wx',async (req,res) => {
+    const requestBody = req.body
+    const result = await wxService(requestBody)
     res.setHeader('Content-Type', 'text/xml')
     res.end(result)
 })

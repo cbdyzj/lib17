@@ -1,3 +1,10 @@
 module.exports = {
-    token: '',
+    wx: {
+        token: '',
+    },
+    baidu: {
+        clientId: '',
+        clientSecret: '',
+        accessToken: '',
+    }
 }

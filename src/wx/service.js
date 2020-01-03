@@ -1,35 +1,25 @@
-const {
-    textReply,
-    cannotHandleReply,
-} = require('./reply_templates')
+const {buildContext} = require('./parser/request_parser')
 
 const {
     handleTextMessage,
-} = require('./text_handler')
+} = require('./handler/text_handler')
 
-function wxService(payload) {
-    if (!payload || !payload.xml) {
-        return ''
-    }
-    const {
-        msgtype = [],
-        fromusername = [],
-        tousername = [],
-        content = [],
-    } = payload.xml
+const {
+    handleImageMessage,
+} = require('./handler/image_handler')
 
-    if (msgtype[0] === 'text') {
-        // 复读
-        return textReply({
-            toUserName: fromusername[0],
-            fromUserName: tousername[0],
-            content: handleTextMessage(content[0]),
-        })
+function wxService(request) {
+    const ctx = buildContext(request)
+    switch (ctx.payload.messageType) {
+        // 文本
+        case 'text':
+            return handleTextMessage(ctx)
+        // 图片
+        case 'image':
+            return handleImageMessage(ctx)
+        default:
+            return ctx.text('怎么办呢？')
     }
-    return cannotHandleReply({
-        toUserName: fromusername[0],
-        fromUserName: tousername[0],
-    })
 }
 
 module.exports = wxService
