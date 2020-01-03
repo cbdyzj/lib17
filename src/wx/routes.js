@@ -1,8 +1,8 @@
 const crypto = require('crypto')
 const { Router } = require('express')
 
-const { token } = require('./config')
-const wxService = require('./wx_service')
+const { token } = require('../config')
+const wxService = require('./service')
 
 const wxRouter = Router()
 
