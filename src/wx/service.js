@@ -3,16 +3,12 @@ const {
     cannotHandleReply,
 } = require('./reply_templates')
 
-function handleTextMessage(content){
-    if(/^在吗？?$/.test(content)){
-        return 'nano在的'
-    }
-    return content
-}
-
+const {
+    handleTextMessage,
+} = require('./text_handler')
 
 function wxService(payload) {
-    if (!payload.xml) {
+    if (!payload || !payload.xml) {
         return ''
     }
     const {

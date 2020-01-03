@@ -6,7 +6,7 @@ const wxService = require('./service')
 
 const wxRouter = Router()
 
-wxRouter.post('/wx',(req,res) =>{
+wxRouter.post('/wx',(req,res) => {
     const payload = req.body
     const result = wxService(payload)
     res.setHeader('Content-Type', 'text/xml')
