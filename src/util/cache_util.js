@@ -2,15 +2,15 @@ const ExpireMap = require('expiry-map')
 
 const CACHE_EXPIRE_TIME = 3000
 
-function useExpireCache(target, options) {
+function useExpireCache(target, options = { }) {
     const {
         cacheKeyGetter,
         expireTime,
         refreshable,
     } = options
 
-    if (!cacheKeyGetter && typeof cacheKeyGetter !== 'function') {
-        throw new Error('Cache key getter required')
+    if (typeof cacheKeyGetter !== 'function') {
+        throw new Error('Illegal cache key getter')
     }
     const cacheBucket = new ExpireMap(expireTime || CACHE_EXPIRE_TIME)
 
