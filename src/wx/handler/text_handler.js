@@ -1,5 +1,5 @@
-const { getWikiExtracts } = require('../../util/wiki_extracts')
-const { channels } = require('./channel')
+const {getWikiExtracts} = require('../../util/wiki_extracts')
+const { channels, getChannel } = require('./channel')
 const compose = require('../../util/compose')
 
 /* text handlers */
@@ -29,17 +29,23 @@ handlers.push((ctx, next) => {
     return next()
 })
 
+// channel
+handlers.push(async (ctx, next) => {
+    const channel = getChannel(ctx.payload.content)
+    if (channel) {
+        // set user context
+        ctx.channel.set(ctx.payload.fromUserName, channel.name)
+        ctx.text(channel.prompt)
+        return
+    }
+    return next()
+})
+
 // wiki
 handlers.push(async (ctx, next) => {
     if (ctx.channel.get(ctx.payload.fromUserName) === '维基百科') {
         const wiki = await getWikiExtracts(ctx.payload.content)
         ctx.text(wiki)
-        return
-    }
-    if (ctx.payload.content === '维基百科') {
-        // set user context
-        ctx.channel.set(ctx.payload.fromUserName, '维基百科')
-        ctx.text('10分钟内发送关键词将从维基百科查询词条')
         return
     }
     return next()
@@ -52,24 +58,6 @@ handlers.push(async (ctx, next) => {
     //     ctx.text(result)
     //     return
     // }
-    if (ctx.payload.content === '谷歌搜索') {
-        // set user context
-        ctx.channel.set(ctx.payload.fromUserName, '谷歌搜索')
-        ctx.text('谷歌搜索功能还在施工中🔧，请稍后试试')
-        return
-    }
-    return next()
-})
-
-
-// plant
-handlers.push((ctx, next) => {
-    if (ctx.payload.content === '植物识别') {
-        // set user context
-        ctx.channel.set(ctx.payload.fromUserName, '植物识别')
-        ctx.text('10分钟内上传图片能识别植物哦（为了防止图片太大，请避免上传原图哦）')
-        return
-    }
     return next()
 })
 
