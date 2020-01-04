@@ -15,6 +15,9 @@ const rules = [{
     pattern: /^你是谁？?$/,
     reply: '我是nano呀',
 }, {
+    pattern: /^【收到不支持的消息类型，暂无法显示】$/,
+    reply: 'nano不支持这个消息类型哦',
+}, {
     pattern: /^nano?$/i,
     reply: '试试输入下列关键词让nano帮助你吧：' + '\n' + channels.map(c => c.name).join('\n')
 }, {
