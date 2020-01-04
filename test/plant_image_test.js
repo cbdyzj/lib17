@@ -5,7 +5,7 @@ const url2base64 = require('../src/util/url2base64')
 
 const imageUrl = "https://wx4.sinaimg.cn/mw690/e7c6b476ly1gajjoo7nf8j20aw0bm0ta.jpg"
 
-async function plantImageTest() {
+async function test() {
     const image = await url2base64(imageUrl)
     const result = await client(image)
     const info = result.result[0].baike_info
@@ -14,5 +14,5 @@ async function plantImageTest() {
 }
 
 if (require.main === module) {
-    plantImageTest()
+    test()
 }
