@@ -17,7 +17,7 @@ function ellipsis(longString = '') {
             if (result.length + stringItems[i].length > MAX_LENGTH) {
                 break
             }
-            result += stringItems[i]
+            result += '\n' + stringItems[i]
         }
         return result
     }
