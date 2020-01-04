@@ -22,7 +22,7 @@ handlers.push((ctx, next) => {
 handlers.push((ctx, next) => {
     if (/^nano?$/i.test(ctx.payload.content)) {
         const message = '试试输入下列关键词让nano帮你吧：'
-            + '\n' + channels.join('\n')
+            + '\n' + channels.map(c => c.name).join('\n')
         ctx.text(message)
         return
     }
