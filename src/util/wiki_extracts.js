@@ -1,4 +1,5 @@
 const axios = require('axios')
+const {useExpireCache} = require('./cache_util')
 
 const QUERY_API = 'https://org-jianzhao-payroll.herokuapp.com/wiki/extracts?titles='
 const URL_PREFIX = 'https://zh.m.wikipedia.org/wiki/'
@@ -49,5 +50,9 @@ async function getWikiExtracts(titles) {
 
 
 module.exports = {
-    getWikiExtracts,
+    getWikiExtracts: useExpireCache(getWikiExtracts, {
+        cacheKeyGetter: titles => titles,
+        refreshable: false,
+        expireTime: 10 * 60 * 1000
+    }),
 }
