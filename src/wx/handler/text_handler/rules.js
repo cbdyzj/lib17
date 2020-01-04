@@ -22,6 +22,12 @@ const rules = [{
             + '\n' + channels.map(c => c.name).join('\n')
     }
 }, {
+    pattern: /^重置频道$/i,
+    reply() {
+        ctx.channel.delete(ctx.payload.fromUserName)
+        return '已重置'
+    }
+}, {
     pattern: /^nano状态$/i,
     reply() {
         return getStatusText()

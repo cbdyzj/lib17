@@ -19,7 +19,8 @@ function getAppStatusText() {
     result.push('arch: ' + os.arch())
     result.push('os uptime: ' + os.uptime() + ' seconds')
     const cpus = os.cpus()
-    result.push('cpus: ' + cpus.length + ' * ' + cpus[0].model)
+    const count = cpus.length > 1 ? ' * ' + cpus.length : ''
+    result.push('cpus: ' + cpus[0].model + count)
     result.push('totalmem: ' + formatMB(os.totalmem()))
     result.push('freemem: ' + formatMB(os.freemem()))
 
