@@ -1,5 +1,5 @@
 const {getWikiExtracts} = require('../../util/wiki_extracts')
-const { channels, getChannel } = require('./channel')
+const {channels, getChannel} = require('./channel')
 const compose = require('../../util/compose')
 
 /* text handlers */
@@ -32,7 +32,8 @@ handlers.push((ctx, next) => {
 // channel
 handlers.push(async (ctx, next) => {
     const channel = getChannel(ctx.payload.content)
-    if (channel) {
+    if (channel
+        && channel.name !== ctx.channel.get(ctx.payload.fromUserName)) {
         // set user context
         ctx.channel.set(ctx.payload.fromUserName, channel.name)
         ctx.text(channel.prompt)
