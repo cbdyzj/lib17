@@ -1,5 +1,5 @@
-const {getWikiExtracts} = require('../../util/wiki_extracts')
-const {channels, getChannel} = require('./channel')
+const { getWikiExtracts } = require('../../util/wiki_extracts')
+const { channels, getChannel } = require('./channel')
 const compose = require('../../util/compose')
 
 /* text handlers */
@@ -54,11 +54,13 @@ handlers.push(async (ctx, next) => {
 
 // Google
 handlers.push(async (ctx, next) => {
-    // if (ctx.channel.get(ctx.payload.fromUserName) === '谷歌搜索') {
-    //     const result = await googleSearch(ctx.payload.content)
-    //     ctx.text(result)
-    //     return
-    // }
+    if (ctx.channel.get(ctx.payload.fromUserName) === '谷歌搜索') {
+        const keywords = ctx.payload.content
+        let result = 'nano生成了搜索链接：' + keywords
+        result += '\n' + 'https://www.google.com/search?q=' + encodeURIComponent(keywords)
+        ctx.text(result)
+        return
+    }
     return next()
 })
 
