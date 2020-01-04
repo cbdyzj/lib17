@@ -17,7 +17,19 @@ function getChannel(name) {
     }
 }
 
-module.exports = {
-    channels,
-    getChannel,
-}
+const handlers = []
+
+handlers.push(async (ctx, next) => {
+    const channel = getChannel(ctx.payload.content)
+    if (channel
+        && channel.name !== ctx.channel.get(ctx.payload.fromUserName)) {
+        // set user context
+        ctx.channel.set(ctx.payload.fromUserName, channel.name)
+        ctx.text(channel.prompt)
+        return
+    }
+    return next()
+})
+
+handlers.channels = channels
+module.exports = handlers

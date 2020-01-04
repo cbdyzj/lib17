@@ -1,8 +1,6 @@
-const compose = require('../../util/compose')
-const url2base64 = require('../../util/url2base64')
-const client = require('../../baidu/plant_client')
+const url2base64 = require('../../../util/url2base64')
+const client = require('../../../baidu/plant_client')
 
-/* image handlers */
 const handlers = []
 
 // plant
@@ -13,7 +11,6 @@ handlers.push(async (ctx, next) => {
     try {
         const image = await url2base64(ctx.payload.pictureUrl)
         const result = await client(image)
-        console.log(result)
         const primary = result.result[0]
         if (primary.name === '非植物') {
             ctx.text('nano觉得这个不是植物哦')
@@ -34,15 +31,4 @@ handlers.push(async (ctx, next) => {
     }
 })
 
-// eventually
-handlers.push(async (ctx, next) => {
-    ctx.text('很显然，这是一张图片')
-})
-
-function handleImageMessage(ctx) {
-    return compose(handlers)(ctx)
-}
-
-module.exports = {
-    handleImageMessage,
-}
+module.exports = handlers
