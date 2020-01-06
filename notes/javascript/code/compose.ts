@@ -1,4 +1,4 @@
-export type Middleware = (ctx: any, nxt: () => any) => any
+export type Middleware = (ctx: any, next: () => any) => any
 
 export function compose(middlewares: Middleware[]) {
     if (!middlewares || !middlewares.length) {
