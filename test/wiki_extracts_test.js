@@ -1,4 +1,4 @@
-const {getWikiExtracts} = require('../src/util/wiki_extracts')
+const { getWikiExtracts } = require('../src/util/wiki_extracts')
 
 
 async function test() {

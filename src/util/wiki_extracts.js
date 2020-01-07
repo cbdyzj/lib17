@@ -1,5 +1,5 @@
 const axios = require('axios')
-const {useExpireCache} = require('./cache_util')
+const { useExpireCache } = require('./cache_util')
 
 const QUERY_API = 'https://org-jianzhao-payroll.herokuapp.com/wiki/extracts?titles='
 const URL_PREFIX = 'https://zh.m.wikipedia.org/wiki/'
