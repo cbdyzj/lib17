@@ -4,7 +4,6 @@ docker run -d \
 --name lib17 \
 -v `pwd`/src:/opt/lib17/src:ro \
 -v `pwd`/static:/opt/lib17/static:ro \
--v `pwd`/_config.js:/opt/lib17/_config.js:ro \
 -v `pwd`/package.json:/opt/lib17/package.json:ro \
 -v `pwd`/yarn.lock:/opt/lib17/yarn.lock:ro \
 -w /opt/lib17 \
