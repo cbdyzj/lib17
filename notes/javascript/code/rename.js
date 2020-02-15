@@ -1,8 +1,8 @@
 const fs = require('fs')
 
 function replaceRename(regex) {
-    if (!regex) {
-        return
+    if (!(regex instanceof RegExp)) {
+        throw new Error(`"${regex}" is not instance of RegExp`)
     }
     const fileNames = fs.readdirSync(__dirname)
 
