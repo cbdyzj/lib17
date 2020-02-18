@@ -18,7 +18,7 @@ alias atom='open -b com.github.atom "$@"'
 alias serve='python3 -m http.server "$@"'
 alias convert-gb='iconv -f gb18030'
 
-alias ss='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891;echo Using proxy'
+alias ss='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7891;echo Using Clash proxy'
 
 # jdk
 alias jdk8='export JAVA_HOME=/opt/jdk/jdk8u232-b09/Contents/Home;echo Using JDK 8'

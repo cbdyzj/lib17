@@ -1,0 +1,11 @@
+object → '{' pairs '}'
+
+pairs → pair pairs_tail | ε
+pair → STRING ':' value
+pairs_tail → ',' pairs | ε
+
+value → STRING | NUMBER | 'true' | 'false' | 'null' | object | array
+array → '[' elements ']'
+
+elements → value elements_tail | ε
+elements_tail → ',' elements | ε
