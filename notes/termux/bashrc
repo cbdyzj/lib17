@@ -1,0 +1,14 @@
+# shell prompt
+PS1='\u@ \w\n$ '
+
+alias de='cd ~/storage/shared'
+alias ll='ls -alh'
+alias ip4='ip addr | grep inet | grep -v inet6'
+
+PROC_NAME=dropbear
+ProcNumber=`ps -ef | grep -w $PROC_NAME | grep -v grep | wc -l`
+if [ $ProcNumber -le 0 ];then
+   echo "Starting Dropbear"
+   dropbear -s
+fi
+
