@@ -23,6 +23,3 @@ alias ss='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7
 # jdk
 alias jdk8='export JAVA_HOME=/opt/jdk/jdk8u232-b09/Contents/Home;echo Using JDK 8'
 alias jdk11='export JAVA_HOME=/opt/jdk/jdk-11.0.5+10/Contents/Home;echo Using JDK 11'
-
-# ctrip
-alias cyarn='yarn --ignore-optional --registry http://registry.npm.release.ctripcorp.com'
