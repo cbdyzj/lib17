@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS config
+(
+    id         INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    name       VARCHAR(32)                       NOT NULL,
+    value      VARCHAR(2000)                     NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL
+);

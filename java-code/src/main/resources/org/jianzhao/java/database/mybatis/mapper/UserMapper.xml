@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.jianzhao.java.database.mybatis.mapper.UserMapper">
+    <select id="findOne" resultType="org.jianzhao.java.entity.User">
+        SELECT
+            id,
+            name,
+            age
+        FROM user
+        LIMIT 1
+    </select>
+    <select id="findAll" resultType="org.jianzhao.java.entity.User">
+        SELECT
+            id,
+            name,
+            age
+        FROM user
+    </select>
+    <select id="findByName" resultType="org.jianzhao.java.entity.User">
+        SELECT
+            id,
+            name,
+            age
+        FROM user
+        WHERE name = #{name}
+    </select>
+    <select id="searchByAge" resultType="org.jianzhao.java.entity.User">
+        SELECT
+        id,
+        name,
+        age
+        FROM user
+        WHERE TRUE
+        <if test="age != null">
+            AND age = #{age}
+        </if>
+    </select>
+</mapper>
