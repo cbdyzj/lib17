@@ -1,3 +1,3 @@
-# Java Lib Demo
+# java-code
 
-- see [build.gradle](https://github.com/cbdyzj/java-demo/blob/master/build.gradle)
+- see build.gradle
