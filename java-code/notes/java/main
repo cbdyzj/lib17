@@ -1,7 +1,7 @@
-#!/usr/bin/java --source 11
+#!/usr/bin/java --source 14
 
- public class Main {
+public class Main {
      public static void main (String[] args) {
-         println("Java 11!");
+         System.out.println("Java 14!");
      }
 }
