@@ -1,6 +1,6 @@
-package org.jianzhao.java.reflection.joor;
+package draft.reflection.joor;
 
-import org.jianzhao.java.reflection.joor.Fruit;
+import draft.reflection.joor.Fruit;
 
 public class Banana extends Fruit {
 

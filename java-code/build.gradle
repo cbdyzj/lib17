@@ -23,8 +23,7 @@ tasks.withType(JavaExec) {
 sourceCompatibility = '14'
 targetCompatibility = '14'
 
-group = 'org.jianzhao.java'
-version = '0.2.0'
+group = 'draft'
 
 dependencies {
     implementation 'org.codehaus.groovy:groovy:3.0.5'
