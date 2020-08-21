@@ -28,8 +28,8 @@ public class FileCutter {
     @SneakyThrows
     public List<String> split(String pathname) {
         var is = new FileInputStream(pathname);
+        var pathnameList = new ArrayList<String>();
         try (is) {
-            var pathnameList = new ArrayList<String>();
             for (int i = 1; ; i++) {
                 var partFilename = pathname + PART_SUFFIX + i;
                 var os = new FileOutputStream(partFilename);
@@ -44,10 +44,10 @@ public class FileCutter {
                             break;
                         }
                     }
-                }
-                pathnameList.add(partFilename);
-                if (read <= 0) {
-                    break;
+                    pathnameList.add(partFilename);
+                    if (read <= 0) {
+                        break;
+                    }
                 }
             }
         }
