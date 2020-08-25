@@ -1,6 +1,7 @@
 # git
 
 ```sh
+git clone --depth=1 <origin>
 git clean -xdf # 清理文件
 git remote prune origin # 清理本地分支
 git stash # 储藏
