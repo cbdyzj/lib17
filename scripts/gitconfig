@@ -8,5 +8,6 @@
 	cm = commit
 	sm = submodule
 	lq = log --abbrev-commit --pretty=oneline
+	c1 = clone --depth=1
 [core]
 	quotepath = false
