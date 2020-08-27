@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.jdbc.core.ColumnMapRowMapper
 import org.springframework.jdbc.datasource.SingleConnectionDataSource
 
-
 static def createDatasource() {
     def dataSource = new SingleConnectionDataSource()
     dataSource.setUrl('jdbc:mysql://localhost:3306')
