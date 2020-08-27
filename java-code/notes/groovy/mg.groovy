@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 @Grab('org.mybatis.generator:mybatis-generator-core:1.3.6')
 @Grab('mysql:mysql-connector-java:8.0.11')
 import org.mybatis.generator.api.MyBatisGenerator
