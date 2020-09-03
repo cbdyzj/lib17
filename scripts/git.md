@@ -1,6 +1,7 @@
 # git
 
 ```sh
+git config --unset credential.helper # 清除HTTP Basic密码
 git clone --depth=1 <origin>
 git clean -xdf # 清理文件
 git remote prune origin # 清理本地分支
@@ -20,6 +21,7 @@ git rm --cached <filename> # 取消暂存
 git tag <tagname> # 为当前版本打tag
 git tag -a <tagname> <commit> -m <comment> # 为特定版本打tag
 git push --tags # 推送tag到源
+git push origin --delete tag <tagname> # 删除远程tag
 git reset --hard <commit> # 强制回滚
 git reset --hard HEAD~3 # 强制回滚三个版本
 git submodule add <ref> <dir> # 增加子模块
