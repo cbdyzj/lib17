@@ -8,3 +8,4 @@
 ```java
 var suffix = "image.png".replaceAll(".*\\.", "");
 ```
+
