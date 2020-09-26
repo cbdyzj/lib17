@@ -2,7 +2,7 @@
 
 ## Gradle
 
-- gradle wrapper：`gradle --distribution-type=all wrapper --gradle-version=5.0.0`
+- gradle wrapper：`gradle wrapper --distribution-type=all --gradle-version=5.0.0`
 - Distributions：https://services.gradle.org/
 
 ## Maven
