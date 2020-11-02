@@ -1,6 +1,6 @@
 var http = require('http')
 
-http.request({
+const cr = http.request({
     host: 'localhost',
     port: '80',
     path: '/endpoint',
@@ -10,4 +10,7 @@ http.request({
     res.on('data', chunk => buffer += chunk)
     res.on('error', error => console.error(error))
     res.on('end', () => console.log(buffer))
-}).end()
+})
+
+cr.write('')
+cr.end()
