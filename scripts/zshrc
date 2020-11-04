@@ -20,10 +20,10 @@ alias tail1='tail -n1'
 alias de='cd ~/Desktop'
 
 # net
-alias trojan='docker run -d --rm --name trojan -v $HOME/trojan:/config:ro -p 9080:9080 trojangfw/trojan:1.14.1 trojan "$@"'
+alias trojan='docker run -d --rm --name trojan -v "$HOME/trojan:/config:ro" -p 9080:9080 trojangfw/trojan:1.14.1 trojan "$@"'
 
 # ffmpeg
-alias ffmpeg='docker run --rm -v `pwd`:/tmp/workdir jrottenberg/ffmpeg:4.1 "$@"'
+alias ffmpeg='docker run --rm -v "$PWD:/tmp/workdir" jrottenberg/ffmpeg:4.1 "$@"'
 
 # npm and yarn
 export ADBLOCK=true
