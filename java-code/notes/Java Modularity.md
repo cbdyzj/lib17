@@ -1,5 +1,7 @@
 # Java Modularity
 
+Similar to how classes from the `java.lang` package are implicitly imported into source files. Modules do not need to explicitly declare that they depend on the `java.base` module
+
 ### requires …
 
 Correspond to the `implementation` of Gradle, both a runtime and a compile-time dependency
