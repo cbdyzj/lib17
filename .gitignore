@@ -28,3 +28,4 @@ build
 *.ipr
 *.iws
 *.db
+yarn.lock
