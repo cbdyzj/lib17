@@ -1,14 +1,14 @@
-const isNumber = (expr: string) => !Number.isNaN(parseFloat(expr))
+const isNumber = (expr) => !Number.isNaN(parseFloat(expr))
 const tokens = ['+', '-', '*', '/', '(', ')']
 
-const stackTopIn = (stack: any[], tokens: any[]) => {
+const stackTopIn = (stack, tokens) => {
     for (const token of tokens) {
         if (stack[stack.length - 1] === token) { return true }
     }
     return false
 }
 
-function splitExpreion(expreion: string): string[] {
+function splitExpreion(expreion) {
     let expr: string = expreion
     for (const token of tokens) {
         expr = expr.split(token).join(`|${token}|`)
@@ -16,9 +16,9 @@ function splitExpreion(expreion: string): string[] {
     return expr.split('|').map(t => t.trim()).filter(t => t !== '')
 }
 
-function suffixArray(exprArray: string[]) {
-    const outStack: string[] = []
-    const symbolStack: string[] = []
+function suffixArray(exprArray) {
+    const outStack = []
+    const symbolStack = []
     for (const expr of exprArray) {
         if (isNumber(expr)) {
             outStack.push(expr)
@@ -63,7 +63,7 @@ function suffixArray(exprArray: string[]) {
     return outStack.concat(symbolStack.reverse())
 }
 
-function clacStack(outStack: string[]): number {
+function clacStack(outStack) {
     const calcStack: number[] = []
     while (outStack.length > 0) {
         const e = outStack.shift()
@@ -93,7 +93,7 @@ function clacStack(outStack: string[]): number {
 }
 
 
-export function calc(expreion: string): number {
+export function calc(expreion) {
     const exprArray = splitExpreion(expreion)
     const outStack = suffixArray(exprArray)
     return clacStack(outStack)
