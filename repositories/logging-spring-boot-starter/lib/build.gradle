@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    modularity.inferModulePath = true
+}
+
+group = 'org.jianzhao'
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    archiveClassifier.set('sources')
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+def springBootVersion = '2.4.1'
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
+    // test
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testImplementation 'org.aspectj:aspectjweaver:1.9.6'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}

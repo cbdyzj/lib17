@@ -1,0 +1,26 @@
+.extract {
+  padding: 5px;
+  display: block;
+  background-color: ghostwhite;
+  border-radius: 5px;
+
+  :global {
+
+    .extract-text {
+      overflow: hidden;
+    }
+
+    .switcher {
+      float: right;
+      margin: 4px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .fold {
+      height: calc(8em + 5px);
+    }
+  }
+}

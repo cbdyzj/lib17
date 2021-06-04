@@ -1,0 +1,19 @@
+.bind2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bind2 h1 {
+    font-size: 5em;
+}
+
+.bind2 input {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.bind2 p {
+    font-size: 2.5em;
+}

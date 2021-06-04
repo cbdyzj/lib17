@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Socket</title>
+</head>
+<body>
+<div id="app"></div>
+<script>
+    const div = document.querySelector('#app')
+
+    function append(text) {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = new Date().toISOString() + ': ' + text
+        div.append(paragraph)
+    }
+
+    function getWsUrl(path) {
+        switch (location.protocol) {
+            case 'http:':
+                return 'ws://' + location.host + path
+            case 'https:':
+                return 'wss://' + location.host + path
+            default:
+                throw new Error('Illegal protocol')
+        }
+    }
+
+    function main() {
+        append('Hi! Web Socket')
+        const socket = new WebSocket(getWsUrl('/ws'))
+        socket.onopen = function (ev) {
+            append('ws open')
+            console.log('onopen', ev)
+        }
+        socket.onclose = function (ev) {
+            append('ws close')
+            console.log('onclose', ev)
+        }
+        socket.onerror = function (error) {
+            append('ws error')
+            console.log('onerror', error)
+        }
+        socket.onmessage = function (message) {
+            append('server message: ' + message && message.data)
+        }
+
+        setInterval(function () {
+            socket.send('client send message')
+        }, 1000)
+    }
+
+    document.onreadystatechange = function () {
+        if (document.readyState === 'interactive') {
+            main()
+        }
+    }
+</script>
+</body>
+</html>

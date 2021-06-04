@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Input</title>
+    <style>
+        .input-types {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-types > label {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input">
+        https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input
+    </a>
+    <hr>
+    <div class="input-types">
+        <label>text: <input type="text" value="text"></label>
+        <label>search: <input type="search" value="search"></label>
+        <label>password: <input type="password" value="password"></label>
+        <label>button: <input type="button" value="button"></label>
+        <label>checkbox: <input type="checkbox" checked></label>
+        <label>color: <input type="color"></label>
+        <label>date: <input type="date" value="2021-04-17"></label>
+        <label>datetime-local: <input type="datetime-local" value="2021-04-17T14:26"></label>
+        <label>email: <input type="email" value="email@email.email"></label>
+        <label>file: <input type="file"></label>
+        <label>hidden: <input type="hidden" value="hidden"></label>
+        <label>image: <input type="image" src="./button.svg" alt="button"></label>
+        <label>month: <input type="month" value="2021-04"></label>
+        <label>number: <input type="number" value="17"></label>
+        <label>radio: <input type="radio"></label>
+        <label>range: <input type="range" value="67"></label>
+        <label>reset: <input type="reset"></label>
+        <label>submit: <input type="submit"></label>
+        <label>tel: <input type="tel" value="110"></label>
+        <label>time: <input type="time" value="14:17"></label>
+        <label>url: <input type="url" value="https://mdn.io/"></label>
+        <label>week: <input type="week"></label>
+    </div>
+</div>
+</body>
+</html>

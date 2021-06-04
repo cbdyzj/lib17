@@ -1,0 +1,84 @@
+import org.gradle.internal.jvm.Jvm
+
+plugins {
+    id 'java-library'
+    id 'c'
+}
+
+group = 'jn'
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    archiveClassifier.set('sources')
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+processResources {
+    from('build/libs/jn/shared') {
+        into 'jn/native'
+    }
+}
+
+dependencies {
+    api 'org.springframework:spring-core:5.2.8.RELEASE'
+    api 'net.java.dev.jna:jna:5.6.0'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+model {
+    platforms {
+        x86 {
+            if (operatingSystem.macOsX) {
+                architecture "x64"
+            } else {
+                architecture "x86"
+            }
+        }
+    }
+    components {
+        jn(NativeLibrarySpec) {
+            targetPlatform "x86"
+            binaries.all {
+                def javaHome = Jvm.current().javaHome
+                if (targetPlatform.operatingSystem.macOsX) {
+                    cCompiler.args '-I', "${javaHome}/include"
+                    cCompiler.args '-I', "${javaHome}/include/darwin"
+                    cCompiler.args '-mmacosx-version-min=10.12'
+                    linker.args '-mmacosx-version-min=10.12'
+                } else if (targetPlatform.operatingSystem.linux) {
+                    cCompiler.args '-I', "${javaHome}/include"
+                    cCompiler.args '-I', "${javaHome}/include/linux"
+                    cCompiler.args '-D_FILE_OFFSET_BITS=64'
+                } else if (targetPlatform.operatingSystem.windows) {
+                    cCompiler.args "-I${javaHome}/include"
+                    cCompiler.args "-I${javaHome}/include/win32"
+                    linker.args "Shlwapi.lib", "Advapi32.lib"
+                } else if (targetPlatform.operatingSystem.freeBSD) {
+                    cCompiler.args '-I', "${javaHome}/include"
+                    cCompiler.args '-I', "${javaHome}/include/freebsd"
+                }
+            }
+        }
+    }
+}
+
+processResources.dependsOn 'jnSharedLibrary'

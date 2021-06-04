@@ -1,0 +1,53 @@
+plugins {
+    id 'com.github.node-gradle.node'
+    id 'java-library'
+}
+
+group = 'design'
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+task installNodeModules(type: NpmTask) {
+    args = ['install']
+}
+
+task checkNodeModules {
+    if (!file('node_modules').exists()) {
+        dependsOn installNodeModules
+    }
+}
+
+task start(type: NpmTask) {
+    dependsOn checkNodeModules
+    args = ['start']
+}
+
+task buildStatic(type: NpmTask) {
+    dependsOn checkNodeModules
+    args = ['run', 'build']
+}
+
+task cleanStatic(type: NpmTask) {
+    dependsOn checkNodeModules
+    args = ['run', 'clean']
+}
+
+clean {
+    dependsOn cleanStatic
+}
+
+processResources {
+    dependsOn buildStatic
+
+    from('dist') {
+        into '/META-INF/resources'
+    }
+}
+
+node {
+    version = '15.13.0'
+    npmVersion = '7.8.0'
+    download = true
+}
+

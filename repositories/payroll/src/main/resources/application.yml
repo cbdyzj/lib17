@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: payroll
+  servlet:
+    multipart:
+      max-file-size: 20MB
+server:
+  port: 8000

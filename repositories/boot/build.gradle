@@ -1,0 +1,46 @@
+plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+    id 'java'
+}
+
+group = 'org.jianzhao.boot'
+
+sourceCompatibility = '16'
+targetCompatibility = '16'
+
+repositories {
+    mavenCentral()
+}
+
+processResources {
+    from('static/') {
+        into 'static'
+    }
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy:3.0.7'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.aspectj:aspectjweaver:1.9.6'
+    implementation 'org.jooq:joor:0.9.13'
+    implementation 'org.graalvm.js:js:20.3.0'
+    implementation 'org.graalvm.js:js-scriptengine:20.3.0'
+    implementation 'com.github.ben-manes.caffeine:caffeine:3.0.0'
+    implementation 'mysql:mysql-connector-java:8.0.23'
+    implementation 'com.github.spullara.mustache.java:compiler:0.9.7'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}

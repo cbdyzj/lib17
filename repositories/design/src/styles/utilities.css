@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.inline-block {
+ display: inline-block;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}

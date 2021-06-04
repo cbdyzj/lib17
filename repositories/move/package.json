@@ -1,0 +1,24 @@
+{
+  "name": "move",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mod.js",
+  "scripts": {
+    "start": "serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbdyzj/move.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbdyzj/move/issues"
+  },
+  "homepage": "https://github.com/cbdyzj/move#readme",
+  "devDependencies": {
+    "serve": "^11.3.2",
+    "vue": "^2.6.12"
+  }
+}

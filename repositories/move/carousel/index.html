@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel {
+            position: relative;
+            display: flex;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .image {
+            flex: 0 0 auto;
+            width: 600px;
+            height: 400px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .image1 {
+            background-color: #F87171;
+            animation: image-loop 10s ease infinite;
+        }
+
+        .image2 {
+            background-color: #34D399;
+        }
+
+        .image3 {
+            background-color: #FBBF24;
+        }
+
+        .image4 {
+            background-color: #60A5FA;
+        }
+
+        .indicators {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: 20px;
+            font-size: 0;
+
+            --normal-size: 25px;
+            --active-size: 30px;
+        }
+
+        .indicator {
+            width: var(--normal-size);
+            height: 5px;
+            margin-left: 4px;
+            background-color: #fff;
+            border: 0;
+            border-radius: 2px;
+            bottom: 10px;
+            outline: none;
+        }
+
+        .indicator1 {
+            animation: indicator1-loop 10s ease infinite;
+        }
+
+        .indicator2 {
+            animation: indicator2-loop 10s ease infinite;
+        }
+
+        .indicator3 {
+            animation: indicator3-loop 10s ease infinite;
+        }
+
+        .indicator4 {
+            animation: indicator4-loop 10s ease infinite;
+        }
+
+        @keyframes indicator1-loop {
+            0% {
+                width: var(--active-size);
+            }
+            20% {
+                width: var(--active-size);
+            }
+            25% {
+                width: var(--normal-size);
+            }
+            95% {
+                width: var(--normal-size);
+            }
+            100% {
+                width: var(--active-size);
+            }
+        }
+
+        @keyframes indicator2-loop {
+            0% {
+                width: var(--normal-size);
+            }
+            20% {
+                width: var(--normal-size);
+            }
+            25% {
+                width: var(--active-size);
+            }
+            45% {
+                width: var(--active-size);
+            }
+            50% {
+                width: var(--normal-size);
+            }
+            100% {
+                width: var(--normal-size);
+            }
+        }
+
+        @keyframes indicator3-loop {
+            0% {
+                width: var(--normal-size);
+            }
+            45% {
+                width: var(--normal-size);
+            }
+            50% {
+                width: var(--active-size);
+            }
+            70% {
+                width: var(--active-size);
+            }
+            75% {
+                width: var(--normal-size);
+            }
+            100% {
+                width: var(--normal-size);
+            }
+        }
+
+        @keyframes indicator4-loop {
+            0% {
+                width: var(--normal-size);
+            }
+            70% {
+                width: var(--normal-size);
+            }
+            75% {
+                width: var(--active-size);
+            }
+            95% {
+                width: var(--active-size);
+            }
+            100% {
+                width: var(--normal-size);
+            }
+        }
+
+        @keyframes image-loop {
+            0% {
+                margin-left: 0;
+            }
+            20% {
+                margin-left: 0;
+            }
+            25% {
+                margin-left: -600px;
+            }
+            45% {
+                margin-left: -600px;
+            }
+            50% {
+                margin-left: -1200px;
+            }
+            70% {
+                margin-left: -1200px;
+            }
+            75% {
+                margin-left: -1800px;
+            }
+            95% {
+                margin-left: -1800px;
+            }
+            100% {
+                margin-left: 0;
+            }
+        }
+    </style>
+    <title>Carousel</title>
+</head>
+<body>
+<div class="carousel">
+    <div class="indicators">
+        <button class="indicator indicator1"></button>
+        <button class="indicator indicator2"></button>
+        <button class="indicator indicator3"></button>
+        <button class="indicator indicator4"></button>
+    </div>
+    <div class="image image1"></div>
+    <div class="image image2"></div>
+    <div class="image image3"></div>
+    <div class="image image4"></div>
+</div>
+</body>
+</html>

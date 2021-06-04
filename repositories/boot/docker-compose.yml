@@ -1,0 +1,7 @@
+version: '3'
+services:
+  boot:
+    build: .
+    container_name: boot
+    ports:
+    - '8080:8080'

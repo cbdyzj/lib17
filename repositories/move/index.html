@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>move</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .w-screen {
+            width: 100vw;
+        }
+
+        .h-screen {
+            height: 100vh;
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="w-screen h-screen overflow-hidden">
+<canvas id="canvas"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.0/redux.min.js"></script>
+<script type="module" src="./move/move.js"></script>
+</body>
+</html>

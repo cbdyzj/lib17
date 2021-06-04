@@ -1,0 +1,14 @@
+.picture-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: snow;
+}
+
+.picture-list img {
+    display: block;
+    max-width: 30rem;
+    margin: 5rem;
+    padding: 1rem;
+    border: 0.3rem solid gray;
+}

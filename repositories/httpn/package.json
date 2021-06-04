@@ -1,0 +1,47 @@
+{
+  "name": "httpn",
+  "version": "0.0.1",
+  "description": "HTTP Server on Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbdyzj/httpn.git"
+  },
+  "keywords": [],
+  "author": "cbdyzj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbdyzj/httpn/issues"
+  },
+  "homepage": "https://github.com/cbdyzj/httpn#readme",
+  "devDependencies": {
+    "@types/koa": "latest",
+    "@types/koa-bodyparser": "latest",
+    "@types/koa-router": "latest",
+    "@types/koa-session": "latest",
+    "@types/koa-static": "latest",
+    "@types/node": "latest",
+    "@types/sequelize": "latest",
+    "mysql": "latest",
+    "sequelize-auto": "latest",
+    "ts-node": "latest",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "amqplib": "latest",
+    "koa": "latest",
+    "koa-bodyparser": "latest",
+    "koa-router": "latest",
+    "koa-session": "latest",
+    "koa-static": "latest",
+    "moment": "latest",
+    "mysql2": "latest",
+    "sequelize": "latest"
+  }
+}

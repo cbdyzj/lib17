@@ -1,0 +1,27 @@
+.content-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 50px;
+
+  .upload-form {
+    text-align: center;
+
+    :global {
+      .ant-upload-text {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .op-button {
+    margin-top: 8px;
+    min-height: 40px;
+  }
+  .download-button {
+    margin-left: 6px;
+    margin-top: 8px;
+    min-height: 40px;
+  }
+}
