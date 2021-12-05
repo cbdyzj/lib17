@@ -5,25 +5,3 @@ PS1="%n@macbook-pro:%~${ZSH_PROMPT_NEWLINE}$ "
 # completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 autoload -U compinit && compinit
-
-# shortcut
-alias ls='ls -G'
-alias ll='ls -alh'
-alias grep='grep --color'
-alias tree='tree -N'
-alias cppwd='pwd | pbcopy'
-alias code='open -b com.microsoft.VSCode'
-alias atom='open -b com.github.atom'
-alias serve='python3 -m http.server'
-alias convert-gb='iconv -f gb18030'
-alias tail1='tail -n1'
-alias de='cd ~/Desktop'
-
-# net
-alias trojan='docker run -d --rm --name trojan -v "$HOME/trojan:/config:ro" -p 9080:9080 trojangfw/trojan:1.14.1 trojan'
-
-# ffmpeg
-alias ffmpeg='docker run --rm -v "$PWD:/tmp/workdir" jrottenberg/ffmpeg:4.1'
-
-# npm and yarn
-export ADBLOCK=true
