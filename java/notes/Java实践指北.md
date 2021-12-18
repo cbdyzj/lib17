@@ -2,8 +2,8 @@
 
 ## JDK
 
-- Oracle OpenJDK
-- [AdoptOpenJDK](https://adoptopenjdk.net/)
+- OpenJDK
+- GraalVM
 
 ## 构建工具
 

@@ -15,7 +15,7 @@ public class StrictFpDemo {
         return String.valueOf(a + b);
     }
 
-    private static strictfp String strictfp1() {
+    private static /* strictfp */ String strictfp1() {
         var a = 1d / 3;
         var b = 2f / 7;
         return String.valueOf(a + b);
