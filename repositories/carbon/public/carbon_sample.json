@@ -1,0 +1,83 @@
+{
+  "appName": "carbon",
+  "appId": "carbon",
+  "fallbackLocale": "zh",
+  "localeList": [
+    "en",
+    "en-US",
+    "zh",
+    "zh-CN",
+    "zh-TW",
+    "ja-JP",
+    "ko-KR",
+    "fa-IR",
+    "ru-RU"
+  ],
+  "pageList": [
+    {
+      "pageName": "Home page",
+      "pageDescription": "Home page",
+      "pageCode": "home_page",
+      "keyList": [
+        {
+          "key": "key.home.greeting",
+          "pageCode": "home_page",
+          "original": [
+            {
+              "locale": "zh",
+              "text": "你好，很高兴见到你！"
+            }
+          ],
+          "translation": [
+            {
+              "locale": "en",
+              "text": "Hi, nice to meet you!"
+            },
+            {
+              "locale": "en-US",
+              "text": "Hi, nice to meet you!"
+            },
+            {
+              "locale": "zh",
+              "text": "你好，很高兴见到你！"
+            },
+            {
+              "locale": "zh-CN",
+              "text": "你好，很高兴见到你！"
+            },
+            {
+              "locale": "zh-TW",
+              "text": "你好，很高興見到你！"
+            },
+            {
+              "locale": "ja-JP",
+              "text": "こんにちは、はじめまして！"
+            },
+            {
+              "locale": "ko-KR",
+              "text": "안녕 만나서 반가워!"
+            },
+            {
+              "locale": "fa-IR",
+              "text": "سلام ، از ملاقات شما خوشحال شدم"
+            },
+            {
+              "locale": "ru-RU",
+              "text": "Привет! Рад встрече!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pageName": "About page",
+      "pageCode": "about_page",
+      "pageDescription": "About page"
+    },
+    {
+      "pageName": "API",
+      "pageCode": "api",
+      "pageDescription": "API"
+    }
+  ]
+}
